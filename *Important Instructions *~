@@ -1,0 +1,14 @@
+Please follow the following instructions for running the website.
+
+1)Download the appropriate WAMP server http://www.wampserver.com/en/
+2)Make a folder called  " Test " in www folder which is inside the folder wamp ( generated after you install it).
+3) In Test folder put all these files.
+4)In Test folder create another called " Upload" , and in this folder put the two image files.
+5)Now start command prompt and change directory to C:\wamp\bin\mysql\mysql5.5.24\bin  or whichever path is there on your computer by typing "cd and the path of bin folder inside mysql folder" and then type "mysql -uroot"
+6)Type " Create database db2" and then type " Use db2"
+7) then type     create table data (Sno int NOT NULL AUTO_INCREMENT,FirstName varchar(20) , LastName varchar(20), Age int,Password varchar (50),EMAIL varchar(50),Status int DEFAULT 1 ,Gender varchar(10),City varchar(50),SUpdate varchar(255) default 'I am happy!',Image varchar(20) default ' NoImage' , LastPlay Timestamp , Primary Key(Sno));
+
+then     create table friends ( UserSno int , FriendSno int);
+then     create table game(Sno int ,Game varchar(20) , LastPlay Timestamp);
+
+Now you can run the website :)
