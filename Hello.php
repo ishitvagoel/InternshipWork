@@ -5,7 +5,7 @@
 <p>
 <marquee>
 <?php 
-  echo "Hello IBIBO ! Life Is Awesome ;)<br>";
+  echo "Life Is Awesome ;)<br>";
   
   for($i=0;$i<20;$i++){
     for($j=0;$j<$i;$j++){ echo "*";}
