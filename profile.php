@@ -2,7 +2,9 @@
 	session_start();//For resuming the Session
 	
 	//Following is the check whether these session variables are set or not, if they are not set then user needs to login or signup.
-	if(!isset($_SESSION['login_email'])&&!isset($_SESSION['login_pass'])&&!isset($_REQUEST['login_email'])&&!isset($_REQUEST['login_pass'])) { echo ' Please Login or SignUp';exit();}
+	if(!isset($_SESSION['login_email'])&&!isset($_SESSION['login_pass'])&&!isset($_REQUEST['login_email'])&&!isset($_REQUEST['login_pass'])) { 
+		echo ' Please Login or SignUp';exit();
+	}
 	if(!isset($_SESSION['id'])) header("Location:Homepage.php");
 	
 	//Following Line sets the session value at key id2 as 1 , this key must be set for all other pages in the website to open.
@@ -132,9 +134,21 @@
 			echo '<a href="http://127.0.0.1/Test/fedit.php">Edit Subscriptions</a></div>';	
 		}
 		//If the Status of a particular user is 0 then he gets deactivated and cannot login anymore.
-		else if($display['Status']==0){ echo 'You Have Been Deactivated By The Administrator.';session_unset();session_destroy();}
-		else { echo "Invalid Login"; session_unset(); session_destroy();}
+		else if($display['Status']==0){ 
+			echo 'You Have Been Deactivated By The Administrator.';
+			session_unset();
+			session_destroy();
+		}
+		else { 
+			echo "Invalid Login";
+			session_unset(); 
+			session_destroy();
+		}
 	}
-	else { echo 'ACCOUNT DOESN\'T EXIST<br><a href="http://127.0.0.1/Test/form.html">Sign Up </a>'; session_destroy();Session_unset();}
+	else { 
+		echo 'ACCOUNT DOESN\'T EXIST<br><a href="http://127.0.0.1/Test/form.html">Sign Up </a>'; 
+		session_destroy();
+		session_unset();
+	}
 
 ?>
