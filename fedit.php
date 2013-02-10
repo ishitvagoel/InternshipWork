@@ -1,6 +1,9 @@
 <?php
 	session_start();
-	if(!isset($_SESSION['id2'])){var_dump($_SESSION['id']); header("Location:Homepage.php");}
+	if(!isset($_SESSION['id2'])){
+		var_dump($_SESSION['id']);
+		header("Location:Homepage.php");
+	}
 	
 	$con2=mysql_connect("localhost","root","");
 	mysql_select_db("db2",$con2);
