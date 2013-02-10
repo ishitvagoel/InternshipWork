@@ -2,7 +2,8 @@
 	session_start();
 	
 	if(!isset($_SESSION['id2'])){
-		var_dump($_SESSION['id']); header("Location:Homepage.php");
+		var_dump($_SESSION['id']);
+		header("Location:Homepage.php");
 	}
 	
 	$con=mysql_connect("localhost","root","");
