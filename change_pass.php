@@ -49,7 +49,7 @@
 		  </head>
 		  <body>
 		  <div style="text-align:center"><br><br><br><br><br><br><br><br><br><br><form action="change_pass.php" onsubmit="return checkpass()" name="pform" method="post">
-	      Enter Old Password:&nbsp&nbsp<input type="password" name="op"><br><br>
+	          Enter Old Password:&nbsp&nbsp<input type="password" name="op"><br><br>
 		  Enter New Password:<input type="password" name="np"><br><br>
 		  Confirm Password: &nbsp &nbsp<input type="password" name="cp"><br><br>
 		  <input type="submit" value="Change is what we can believe in !"></div>
@@ -57,7 +57,7 @@
 		  </html>';
 	$con=mysql_connect("localhost","root","");
 	if(!$con){
-     die('Sorry , could not connect'.mysql_error());
+     		die('Sorry , could not connect'.mysql_error());
 	}
 	mysql_select_db("db2",$con);
 	$data=mysql_query("SELECT Password FROM data WHERE Sno=".$_SESSION['Sno']);
