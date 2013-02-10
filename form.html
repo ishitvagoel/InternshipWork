@@ -1,18 +1,17 @@
 <html>
 <head>
  <script type="text/javascript">
-function validateForm()
-{
+function validateForm(){
 
-var x=document.forms["Info"]["firstname"].value; // x stores the value of first name.
-var y=document.forms["Info"]["lastname"].value;	 // y stores the value of last name.
-var z=document.forms["Info"]["age"].value;       // z store the age.
-var e=document.forms["Info"]["email"].value;     // e store the email	
-var p1=document.forms["Info"]["pwd1"].value;	 // p1 stores the password 1		
-var p2=document.forms["Info"]["pwd2"].value;	 //	p2 stores the password 2
-var city=document.forms["Info"]["city"].value;
-//var gender=document.forms.Info.elements.gender.value;
-var xs=0,ys=0,zs=0,es=0,p1s=0;					 // These variables are used for finding whitespaces in all the input fields.
+	var x=document.forms["Info"]["firstname"].value; // x stores the value of first name.
+	var y=document.forms["Info"]["lastname"].value;	 // y stores the value of last name.
+	var z=document.forms["Info"]["age"].value;       // z store the age.
+	var e=document.forms["Info"]["email"].value;     // e store the email	
+	var p1=document.forms["Info"]["pwd1"].value;	 // p1 stores the password 1		
+	var p2=document.forms["Info"]["pwd2"].value;	 //	p2 stores the password 2
+	var city=document.forms["Info"]["city"].value;
+	//var gender=document.forms.Info.elements.gender.value;
+	var xs=0,ys=0,zs=0,es=0,p1s=0;					 // These variables are used for finding whitespaces in all the input fields.
 //var x2=x,y2=y,z2=z,p=p1;
 /*
 for(var i=0;i<x.length;i++){
@@ -32,27 +31,26 @@ for(var i=0;i<y.length;i++){
  } 
  */
  
- // The following check is used to check whether any field is empty.
-if ( (x==null||x=="") || (y==null||y=="") || (z==null||z=="") || (e==null||e=="") || (p1==null||p1=="") || (p2==null||p2=="")||(city==null||city==""))
-  {
-  alert("Please fill all the details");
-  return false;
-  }
-// The loops in the lines 40-53 are used to check for occurence of whitespaces. 
-for(var l =0;l<x.length;l++){
-    if(x.charAt(l)==" ") {xs++; alert("Whitespaces in First Name are not allowed."); return false;}
-}
-for(l=0;l<y.length;l++){
-  if(y.charAt(l)==" ") {ys++;alert("Whitespaces in Last Name are not allowed.");return false; }
-}
-for(l=0;l<z.length;l++){
-  if(z.charAt(l)==" ") {zs++; alert("Whitespaces in Age are not allowed.");return false;}
- }
+ 	// The following check is used to check whether any field is empty.
+	if ( (x==null||x=="") || (y==null||y=="") || (z==null||z=="") || (e==null||e=="") || (p1==null||p1=="") || (p2==null||p2=="")||(city==null||city=="")) {
+  		alert("Please fill all the details");
+  		return false;
+  	}
+	// The loops in the lines 40-53 are used to check for occurence of whitespaces. 
+	for(var l =0;l<x.length;l++){
+    		if(x.charAt(l)==" ") {xs++; alert("Whitespaces in First Name are not allowed."); return false;}
+	}
+	for(l=0;l<y.length;l++){
+  		if(y.charAt(l)==" ") {ys++;alert("Whitespaces in Last Name are not allowed.");return false; }
+	}
+	for(l=0;l<z.length;l++){
+  		if(z.charAt(l)==" ") {zs++; alert("Whitespaces in Age are not allowed.");return false;}
+ 	}
 
-for(l=0;l<p1.length;l++){
+	for(l=0;l<p1.length;l++){
   
-  if(p1.charAt(l)==" ") {p1s++;alert("Whitespaces in Password are not allowed.");return false;}
-} 
+  		if(p1.charAt(l)==" ") {p1s++;alert("Whitespaces in Password are not allowed.");return false;}
+	} 
 /*
 if(xs!=0||ys!=0||zs!=0||p1s!=0){
   alert("Sorry! Whitespaces are not allowed");
@@ -60,92 +58,96 @@ if(xs!=0||ys!=0||zs!=0||p1s!=0){
 }  */
 
 
-var char_found=0;
-var spcl_found=0;
-var e_spcl=0;
+	var char_found=0;
+	var spcl_found=0;
+	var e_spcl=0;
 
-if(isNaN(z)==true||z<0){
-  alert("Invalid Age. Try Again");
-  return false;
-}
+	if(isNaN(z)==true||z<0){
+		alert("Invalid Age. Try Again");
+  		return false;
+	}
 
-//The following for loop is used to check for a special character in the password.
-//Characters are generated using the ASCII codes then their occurence is found out using the indexOf function.
-for(var i=33;i<=126;i++){
-   if(((i<=47)||(i>=58&&i<=64)||(i>=91&&i<=96)||(i==126))&&(p1.indexOf(String.fromCharCode(i))>=0)){	
-		spcl_found=1;
-		break;
-	  }	
- }
-//This loop is used for checking special characters in email , only "@" and "." are allowed . Have to add exception of "_"
-for(var i=33;i<=126;i++){
-   if(((i<=47)||(i>=58&&i<=64)||(i>=91&&i<=96)||(i==126))){
+	//The following for loop is used to check for a special character in the password.
+	//Characters are generated using the ASCII codes then their occurence is found out using the indexOf function.
+	for(var i=33;i<=126;i++){
+   		if(((i<=47)||(i>=58&&i<=64)||(i>=91&&i<=96)||(i==126))&&(p1.indexOf(String.fromCharCode(i))>=0)){	
+			spcl_found=1;
+			break;
+	  	}	
+ 	}
+	//This loop is used for checking special characters in email , only "@" and "." are allowed . Have to add exception of "_"
+	for(var i=33;i<=126;i++){
+   		if(((i<=47)||(i>=58&&i<=64)||(i>=91&&i<=96)||(i==126))){
     
-     if(i!=46&&i!=64&&e.indexOf(String.fromCharCode(i))>=0){
-	    e_spcl=1;		
-		break;
-	  }	
- }
-}
-  var flagat=0; // for checking presence of "@"
-  var flagdot=0; // for checking presence of "."
-  var space=0;// for checking presence of space
-  var lastdot,sldot;// postion of lastdot and secondlastdot
-  var simdots=0;// for simultaneous dots
-  var dotdot=0;// for simultaneous dots
+     			if(i!=46&&i!=64&&e.indexOf(String.fromCharCode(i))>=0){
+	    			e_spcl=1;		
+				break;
+	  		}	
+ 		}
+	}
+  	var flagat=0; // for checking presence of "@"
+  	var flagdot=0; // for checking presence of "."
+  	var space=0;// for checking presence of space
+  	var lastdot,sldot;// postion of lastdot and secondlastdot
+  	var simdots=0;// for simultaneous dots
+  	var dotdot=0;// for simultaneous dots
   
-  for(var i=0;i<e.length;i++){
-  if((e.charAt(i)==".")&&(e.charAt(i+1)==".")){ dotdot++;}
-    if(e.charAt(i)=="@") flagat++;
-	if(e.charAt(i)==" ") space++;
-    if(e.charAt(i)==".") {
-	   flagdot++;
-       if(flagdot>0)sldot=lastdot;
-	   lastdot=i;
-	 } 
-     if(sldot==(lastdot+1)) simdots++;	 
-  }
+  	for(var i=0;i<e.length;i++){
+  		if((e.charAt(i)==".")&&(e.charAt(i+1)==".")){ 
+  			dotdot++;
+  		}
+    		if(e.charAt(i)=="@") flagat++;
+		if(e.charAt(i)==" ") space++;
+    		if(e.charAt(i)==".") {
+	   		flagdot++;
+       			if(flagdot>0)sldot=lastdot;
+	   		lastdot=i;
+	 	} 
+     		if(sldot==(lastdot+1)) simdots++;	 
+  	}
   
-  if(dotdot>0||e_spcl==1||(e.indexOf("@")<3)||simdots>0||space>0||flagat==0||flagdot==0||flagat>1||lastdot>=(e.length-2)||lastdot<e.indexOf("@")||e.charAt(e.indexOf("@")+1)=="."||e.charAt(e.indexOf("@")-1)==".")
-    {
-	 alert("Invalid Email");
-     return false;	 
-    }
- if(p1.length<5){
-    alert("Password should be atleast 5 characters long");
-	return false;
- }	
- if(spcl_found==0) {
- alert("Password must contain atleast one special character"); 
- return false;
- }
+  	if(dotdot>0||e_spcl==1||(e.indexOf("@")<3)||simdots>0||space>0||flagat==0||flagdot==0||flagat>1||lastdot>=(e.length-2)||lastdot<e.indexOf("@")||e.charAt(e.indexOf("@")+1)=="."||e.charAt(e.indexOf("@")-1)==".") {
+	 	alert("Invalid Email");
+     		return false;	 
+    	}
+ 	if(p1.length<5){
+    		alert("Password should be atleast 5 characters long");
+		return false;
+ 	}	
+ 	if(spcl_found==0) {
+ 		alert("Password must contain atleast one special character"); 
+ 		return false;
+ 	}
  
- if(p1!=p2){
-  alert("Passwords do not match , Try again");
-  return false;  
-  }
-  alert("Thanks For The Registration !");
+ 	if(p1!=p2){
+  		alert("Passwords do not match , Try again");
+  		return false;  
+  	}
+  	alert("Thanks For The Registration !");
  
 }
 </script>
 </head> 
     
 <body>
-<div style="text-align:center"><br><br><br><br><br><br><br><br><br><br>
-<form name="Info" action="insert.php" onsubmit="return validateForm()" method="post" enctype="multipart/form-data" >
-Firstname:&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp <input type="text" name="firstname" /><br><br>
-Lastname:&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp <input type="text" name="lastname" /><br><br>
-Age:&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp  <input type="text" name="age" /><br/><br>
-Gender:&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp Male<input type="radio" name="gender" value="male" />Female<input type="radio" name="gender" value="female" /><br><br>
-City:&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp  <input type="text" name="city" /><br/><br>
-Email:&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp     <input type="text" name="email" /><br><br>
-Password:&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp <input type="password" name="pwd1" /><br><br>
-Retype Password: <input type="password" name="pwd2" /><br><br>
-<label for="file">Upload Picture:</label><br><br>
-<input type="file" name="file" id="file" /><br><br><br>
-<input type="submit" value="Lets Go !" />
-</form>
-</div
+	<div style="text-align:center"><br><br><br><br><br><br><br><br><br><br>
+	
+	<form name="Info" action="insert.php" onsubmit="return validateForm()" method="post" enctype="multipart/form-data" >
+	
+	Firstname:&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp <input type="text" name="firstname" /><br><br>
+	Lastname:&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp <input type="text" name="lastname" /><br><br>
+	Age:&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp  <input type="text" name="age" /><br/><br>
+	Gender:&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp Male<input type="radio" name="gender" value="male" />Female<input type="radio" name="gender" value="female" /><br><br>
+	City:&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp  <input type="text" name="city" /><br/><br>
+	Email:&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp     <input type="text" name="email" /><br><br>
+	Password:&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp <input type="password" name="pwd1" /><br><br>
+	Retype Password: <input type="password" name="pwd2" /><br><br>
+	
+	<label for="file">Upload Picture:</label><br><br>
+	<input type="file" name="file" id="file" /><br><br><br>
+	<input type="submit" value="Lets Go !" />
+	</form>
+	</div>
 
 </body>
 </html> 
