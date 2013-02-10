@@ -1,8 +1,8 @@
 <?php
  $con=mysql_connect("localhost","root","");
-   if(!$con){
+ if(!$con){
       die('Could Not Connect'.mysql_error());
-   }  
+ }  
    
   mysql_select_db("db2",$con);
   
@@ -27,14 +27,16 @@
    while($row=mysql_fetch_array($data)){
     
 	echo "<tr>";
-    echo "<td>".$row['Sno']."</td>";
+        echo "<td>".$row['Sno']."</td>";
+        
 	if($row['Image']=="NoImage"){
 		echo '<td><img src="upload/default.jpg" alt="Default" width="100" height="100" /></td>';
 	}
 	else{
 		echo '<td><img src="upload/'.$row['Image'].'" alt="NO IMAGE" width="100" height="100" /></td>';
 	}
-    echo "<td>".$row['FirstName']."</td>";
+	
+        echo "<td>".$row['FirstName']."</td>";
 	echo "<td>".$row['LastName']."</td>";
 	echo "<td>".$row['Age']."</td>";
 	echo "<td>".$row['EMAIL']."</td>";
@@ -45,20 +47,20 @@
 	
 	echo"</tr>";
 	
-	}
-	echo'<input type="submit" />';
-	echo"</form>";
-	
+   }
+   echo'<input type="submit" />';
+   echo"</form>";
    echo"</table>";
    $data=mysql_query("SELECT * FROM data");   
+   
    for(;$beg=mysql_fetch_array($data);){
-   if(isset($_POST[$beg['Sno']])) {
-   $sql_a= "UPDATE data SET Status=1 WHERE Sno=".$beg['Sno'];
-   $sql_d= "UPDATE data SET Status=0 WHERE Sno=".$beg['Sno'];
-   
-   
-    if($_POST[$beg['Sno']]=='a')mysql_query($sql_a);
-	if($_POST[$beg['Sno']]=='d')mysql_query($sql_d);
+   	if(isset($_POST[$beg['Sno']])) {
+   		
+   		$sql_a= "UPDATE data SET Status=1 WHERE Sno=".$beg['Sno'];
+   		$sql_d= "UPDATE data SET Status=0 WHERE Sno=".$beg['Sno'];
+   		
+   		if($_POST[$beg['Sno']]=='a')mysql_query($sql_a);
+		if($_POST[$beg['Sno']]=='d')mysql_query($sql_d);
 	}
-	}
+   }
    ?>
